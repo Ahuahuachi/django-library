@@ -15,19 +15,3 @@ class IndexTemplateView(TemplateView):
 
         # Retorno el contexto
         return context
-
-
-class ListBooksTemplateView(TemplateView):
-    template_name = "core/book_list.html"
-
-
-class BookDetailsTemplateView(TemplateView):
-    template_name = "core/book_details.html"
-
-
-class CreateBookTemplateView(TemplateView):
-    template_name = "core/book_form.html"
-
-
-class DeleteBookTemplateView(TemplateView):
-    template_name = "core/book_delete.html"
