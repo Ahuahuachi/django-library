@@ -1,9 +1,19 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import ListView, TemplateView
+from .models import Author, Book
 
 
-class ListBooksTemplateView(TemplateView):
+class BookListView(ListView):
     template_name = "books/list.html"
+    model = Book
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        authors = Author.objects.all()
+
+        context["authors"] = authors
+        return context
 
 
 class BookDetailsTemplateView(TemplateView):

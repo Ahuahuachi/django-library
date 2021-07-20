@@ -2,4 +2,15 @@
 
 {% block main_content %}
 <h1>List of books</h1>
+{% for book in object_list %}
+<div>
+    <h3>{{book.title}}</h3>
+    <p>{{book.publishing_year}}</p>
+</div>
+
+{% endfor %}
+
+{% for author in authors %}
+<p>{{author}}</p>
+{% endfor %}
 {% endblock main_content %}
