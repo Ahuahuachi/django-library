@@ -1,5 +1,14 @@
 {% extends 'core/main.html' %}
 
 {% block main_content %}
-<h1>Book details</h1>
+<h1>{{ object.title }}</h1>
+<p><strong>Editorial:</strong> {{ object.publishing_house }}</p>
+<p>
+    <strong>Autores:</strong>
+    {% for author in object.author.all %}
+        {{ author.first_name }} {{ author.last_name }},
+    {% endfor %} 
+</p>
+<p><strong>Año de publicación:</strong> {{ object.publishing_year|date:'Y' }} </p>
+<p><strong>Paginas:</strong> {{ object.pages }}</p>
 {% endblock main_content %}

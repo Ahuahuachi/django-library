@@ -19,7 +19,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
-    author = models.ManyToManyField(to=Author)
+    author = models.ManyToManyField(to=Author, related_name="author")
     publishing_year = models.DateField()
     publishing_house = models.ForeignKey(to=PublishingHouse, on_delete=models.PROTECT)
     pages = models.IntegerField()

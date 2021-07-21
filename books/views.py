@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView
 from .models import Author, Book
 
 
@@ -16,8 +16,9 @@ class BookListView(ListView):
         return context
 
 
-class BookDetailsTemplateView(TemplateView):
+class BookDetailView(DetailView):
     template_name = "books/details.html"
+    model = Book
 
 
 class CreateBookTemplateView(TemplateView):
