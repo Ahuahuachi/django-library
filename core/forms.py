@@ -1,4 +1,5 @@
 from django import forms
+from core.models import Contact
 
 
 class ContactForm(forms.Form):
@@ -9,12 +10,6 @@ class ContactForm(forms.Form):
 
     def send_email(self):
 
-        # Instanciar modelo
-        # colocar datos en modelo
-        # guardar modelo
-
-        # logica para enviar nuestro correo
-
         print("Se envio el correo")
 
     def save_file(self):
@@ -22,6 +17,14 @@ class ContactForm(forms.Form):
         print("Archivo guardado...")
 
     def save_contact(self):
-        # logica para guardar el contacto
+        # Instancia objeto
+        contact = Contact()
+
+        # Rellena datos en objeto
+        contact.email = self.cleaned_data["email"]
+        contact.phone = self.cleaned_data["phone"]
+
+        # Salva los datos en BD
+        contact.save()
 
         print("Contacto guardado...")

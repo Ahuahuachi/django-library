@@ -11,4 +11,6 @@
 </p>
 <p><strong>Año de publicación:</strong> {{ object.publishing_year|date:'Y' }} </p>
 <p><strong>Paginas:</strong> {{ object.pages }}</p>
+<a href="{% url 'books:update' object.pk %}" class="btn btn-outline-primary">Edit</a>
+<a href="{% url 'books:delete' object.pk %}" class="btn btn-danger">Delete</a>
 {% endblock main_content %}

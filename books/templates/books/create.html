@@ -1,22 +1,13 @@
 {% extends 'core/main.html' %}
 
 {% block main_content %}
-<h1>New book</h1>
-{% for error in form.errors %}
-<p>{{ error }}</p>
-{% endfor %}
+{% if book_pk %}
+    <h1>Edit book</h1>
+{% else %}
+    <h1>New book</h1>
+{% endif %}
 <form method="POST" action="">
-
-    <div class="form-control" >{{form.title.label}} {{form.title}}</div>
-    <div>{{ form.title.errors }}</div>
-    <div class="form-control" >{{form.author.label}} {{form.author}}</div>
-    <div class="form-control" >{{form.publishing_year.label}} {{form.publishing_year}}</div>
-    {% if form.publishing_year.errors %}
-        <div class="alert alert-danger">{{ form.publishing_year.errors }}</div>
-    {% endif %}
-    
-    <div class="form-control" >{{form.publishing_house.label}} {{form.publishing_house}}</div>
-    <div class="form-control" >{{form.pages.label}} {{form.pages}}</div>
+    {{form.as_p}}
     {% csrf_token %}
 
     <button type="submit">Submit</button>
