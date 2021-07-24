@@ -43,3 +43,7 @@ class ContactFormView(FormView):
 
 class ThankYouTemplateView(TemplateView):
     template_name = "core/thank-you.html"
+
+
+class LoginView(FormView):
+    template_name = "core/login.html"

@@ -11,6 +11,8 @@
 </p>
 <p><strong>Año de publicación:</strong> {{ object.publishing_year|date:'Y' }} </p>
 <p><strong>Paginas:</strong> {{ object.pages }}</p>
+{% if perms.books.change_book %}
 <a href="{% url 'books:update' object.pk %}" class="btn btn-outline-primary">Edit</a>
+{% endif %}
 <a href="{% url 'books:delete' object.pk %}" class="btn btn-danger">Delete</a>
 {% endblock main_content %}
