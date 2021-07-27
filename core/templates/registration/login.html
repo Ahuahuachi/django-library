@@ -1,4 +1,10 @@
 {% extends 'core/main.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'core/login.css' %}">
+
+{% endblock style %}
 
 {% block main_content %}
 <form action="{% url 'core:login' %}" method="post">
