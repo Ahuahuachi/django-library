@@ -2,11 +2,6 @@
 
 {% block main_content %}
 <h1>Bienvenido</h1>
-<form action="{% url 'core:contact-us' %}" method="post">
-{{form.as_p}}
-{% csrf_token %}
-<button class="btn btn-primary" type="submit">Submit</button>
-</form>
 {% endblock main_content %}
 
 {% block footer_content %}
